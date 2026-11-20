@@ -1,62 +1,131 @@
 # BeautyShop Manager
 
-Aplicación web Full Stack para la futura administración de inventarios, ventas, clientes, compras, proveedores y finanzas de un negocio de maquillaje y accesorios femeninos.
+**BeautyShop Manager** es una aplicación web Full Stack diseñada para gestionar integralmente las operaciones comerciales y administrativas de un negocio de maquillaje y accesorios femeninos.
 
-## Arquitectura
+El proyecto busca centralizar la administración de productos, inventarios, ventas, clientes, compras, proveedores y finanzas mediante una plataforma intuitiva, escalable y segura.
 
-- **Frontend:** React + Vite, React Router DOM, Axios, Context API y CSS.
-- **Backend:** Node.js + Express, API REST, Helmet, CORS, JWT y bcrypt.
-- **Persistencia prevista:** PostgreSQL mediante `pg` y consultas parametrizadas.
-- **Organización:** frontend por funcionalidades y backend por capas (rutas, controladores, servicios y repositorios).
+## Arquitectura tecnológica
 
-En esta etapa solo se implementa la base técnica, la pantalla inicial y el endpoint de salud. No se implementan todavía operaciones comerciales ni autenticación.
+### Frontend
+- React
+- Vite
+- React Router DOM
+- Axios
+- Context API
+- CSS
 
-## Requisitos
+### Backend
+- Node.js
+- Express
+- API REST
+- Helmet
+- CORS
+- JWT
+- bcrypt
 
-- Node.js 20 o superior (recomendado LTS).
+### Base de datos
+- PostgreSQL
+- Driver `pg`
+- Consultas parametrizadas
+
+### Arquitectura del proyecto
+- Frontend organizado por funcionalidades.
+- Backend estructurado por capas: rutas, controladores, servicios y repositorios.
+- Comunicación entre frontend y backend mediante API REST.
+
+## Requisitos previos
+
+Para ejecutar el proyecto necesitas:
+
+- Node.js 20 o superior.
 - npm 10 o superior.
-- PostgreSQL 15 o superior para las siguientes etapas. La aplicación base puede arrancar sin conectar la base de datos.
+- PostgreSQL 15 o superior (para las siguientes etapas de desarrollo).
+
+**Nota:** La versión inicial puede ejecutarse sin una conexión activa a PostgreSQL.
 
 ## Instalación
 
-Abre una terminal en la raíz del repositorio y ejecuta:
+Clona el repositorio:
+
+```bash
+git clone https://github.com/JoanBarbosa/BeautyShop-Manager.git
+```
+
+Ingresa a la carpeta:
+
+```bash
+cd BeautyShop-Manager
+```
+
+### Configuración del Backend
 
 ```bash
 cd backend
 npm install
-cp .env.example .env
-cd ../frontend
-npm install
-cp .env.example .env
 ```
 
-En Windows PowerShell, si `cp` no está disponible, usa `Copy-Item .env.example .env`.
+Crea el archivo de variables de entorno:
 
-Edita `backend/.env` con los datos locales de PostgreSQL cuando se implemente la conexión. No publiques archivos `.env`.
+```powershell
+Copy-Item .env.example .env
+```
 
-## Ejecución
+### Configuración del Frontend
 
-Abre dos terminales:
+Regresa a la carpeta principal:
 
-Terminal 1:
+```bash
+cd ../frontend
+npm install
+```
+
+Crea el archivo de variables de entorno:
+
+```powershell
+Copy-Item .env.example .env
+```
+
+**Importante:** Configura las variables de entorno de acuerdo con tu instalación local. No publiques archivos `.env` ni credenciales reales.
+
+## Ejecución del proyecto
+
+Para ejecutar la aplicación, abre dos terminales independientes en Visual Studio Code.
+
+**Terminal 1 - Backend**
+
 ```bash
 cd backend
 npm run dev
 ```
 
-Terminal 2:
+El servidor estará disponible en:
+
+`http://localhost:4000`
+
+**Terminal 2 - Frontend**
+
 ```bash
 cd frontend
 npm run dev
 ```
 
-Frontend: http://localhost:5173  
-API: http://localhost:4000  
-Comprobación: http://localhost:4000/api/health
+La aplicación estará disponible en:
 
-## Validación
+`http://localhost:5173`
 
-La ruta `GET /api/health` debe responder HTTP 200 con una estructura similar a:
+## Verificación de la API
+
+El backend dispone de un endpoint de comprobación de estado:
+
+```http
+GET /api/health
+```
+
+URL:
+
+`http://localhost:4000/api/health`
+
+Respuesta esperada:
 
 ```json
 {
@@ -65,19 +134,33 @@ La ruta `GET /api/health` debe responder HTTP 200 con una estructura similar a:
 }
 ```
 
-La página inicial del frontend muestra el estado de conexión consultando ese endpoint.
+## Módulos funcionales proyectados
 
-## Módulos funcionales previstos
+El sistema contempla el desarrollo progresivo de los siguientes módulos:
 
-1. Autenticación y autorización.
+1. Autenticación y autorización de usuarios.
 2. Panel de control.
-3. Productos y categorías.
-4. Inventario y movimientos.
-5. Ventas y detalle de ventas.
-6. Clientes.
-7. Compras.
-8. Proveedores.
-9. Gastos, ingresos y finanzas.
-10. Reportes y configuración.
+3. Gestión de productos y categorías.
+4. Administración de inventarios y movimientos.
+5. Gestión de ventas y detalles de ventas.
+6. Administración de clientes.
+7. Gestión de compras.
+8. Administración de proveedores.
+9. Control de ingresos, gastos y finanzas.
+10. Reportes y configuración del sistema.
 
-Estos módulos se desarrollarán en etapas posteriores.
+## Estado del proyecto
+
+**Fase inicial de desarrollo.**
+
+Actualmente se contempla la implementación de la estructura técnica, la pantalla inicial y el endpoint de salud de la API.
+
+Los módulos comerciales, la persistencia de datos y los mecanismos de autenticación se implementarán progresivamente en las siguientes etapas.
+
+## Autor
+
+**Joan Stiven Barbosa Galeano**
+
+Ingeniería de Software | Desarrollo Full Stack
+
+GitHub: [@JoanBarbosa](https://github.com/JoanBarbosa)
